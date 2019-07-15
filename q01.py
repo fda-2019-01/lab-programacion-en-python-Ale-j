@@ -1,6 +1,7 @@
 ##
 ## Imprima la suma de la segunda columna.
 ## 
+import glob as gl
 archivo = gl.glob("data.csv")
 data = open("data.csv", 'rt').readlines()
 data = [line[:-1] for line in data]
