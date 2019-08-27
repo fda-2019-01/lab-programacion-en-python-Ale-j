@@ -17,3 +17,30 @@
 ## ('9', ['A', 'B', 'C', 'E'])
 ##
 ##
+# resumen para el resto de puntos
+import glob as gl
+archivo = gl.glob("data.csv")
+datos = open("data.csv", 'rt').readlines()
+datos = [line[:-1] for line in datos]
+datos = [line.replace("\t", ",") for line in datos]
+datos = [line.split(',') for line in datos]
+datos = sorted([[line[1], line[0]] for line in datos])
+datos2 = set([line[0] for line in datos])
+uno = []
+for num in datos2:
+  x = [num]
+  y = []
+  
+  for ind in datos:
+    
+    if num == ind[0]:
+      y.append(ind[1])
+  y = set(y)
+  for line in y:
+    x = sorted(x+[line])
+  uno = uno+[x]
+uno = sorted(uno)
+for row in uno:
+  dos = row[1:]
+  tres=(row[0],dos)
+  print(tres)
