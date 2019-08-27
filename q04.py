@@ -16,12 +16,6 @@
 ##
 
 # resumen para el resto de puntos
-import glob as gl
-archivo = gl.glob("data.csv")
-datos = open("data.csv", 'rt').readlines()
-datos = [line[:-1] for line in datos]
-datos = [line.replace("\t", ",") for line in datos]
-datos = [line.split(',') for line in datos]
 #primero se selecciona sola primer columna y se ordena 
 datos2 = [i[2] for i in datos]
 datos3 = set(datos2)
@@ -29,16 +23,19 @@ datos3 = set(datos2)
 datos4 = sorted([i[5:7] for i in datos2])
 #ordenarlos
 datos5 = set(datos4)
-
+# se genera lal lista yvariables
 lista1 = []
 for i in datos5:
   p = [i]
   d = 0
+  #si se obtienen los mismos valores entonces
   for x in datos4:
     if x == i:
       d = d+1
   p= p+[d]
+  # se ordenan
   lista1 = sorted(lista1+[p])
+  # se imprime cada elemento
 for ite in lista1:
   res = str(ite[0])+ ","+ str(ite[1])
   print(res)
